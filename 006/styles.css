@@ -1,0 +1,190 @@
+/**
+ * Variables
+ */
+:root {
+  --fontFamily: sans-serif;
+  --fontColor: #705030;
+  --frameWidth: 400px;
+  --frameHeight: 400px;
+  --frameBackground: linear-gradient(45deg, orange, darkorange);
+  --frameShadow: 1px 2px 10px rgba(0, 0, 0, 0.25);
+  --panelWidth: 300px;
+  --panelHeight: 300px;
+  --panelBackground: white;
+  --panelShadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+  --mainPadding: 2em;
+  --statsBackground: antiquewhite;
+  --statsHoverBackground: navajowhite;
+  --avatarSize: 70px;
+  --avatarBackground: antiquewhite url(jessica-potter.jpg);
+  --buttonWidth: 150px;
+  --buttonPadding: 0.5em;
+  --buttonBackground: transparent;
+  --buttonBorder: solid 1px var(--fontColor);
+  --buttonBorderRadius: 2em;
+  --titleFontSize: 1.2rem;
+  --subtitleFontSize: 0.75rem;
+  --subtitleFontColor: #b0b080;
+}
+
+.frame {
+  width: var(--frameWidth);
+  height: var(--frameHeight);
+  margin: auto;
+  background: var(--frameBackground);
+  box-shadow: var(--frameShadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--fontFamily);
+  color: var(--fontColor);
+}
+
+.frame__panel {
+  width: var(--panelWidth);
+  height: var(--panelHeight);
+  background: var(--panelBackground);
+  box-shadow: var(--panelShadow);
+  display: flex;
+}
+
+.frame__panel .profile {
+  flex: 1;
+  padding: var(--mainPadding);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.frame__panel .stats {
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.frame__panel h3,
+.frame__panel h4 {
+  margin: 0;
+  font-weight: normal;
+}
+
+.frame__panel .subtitle {
+  font-size: var(--subtitleFontSize);
+  color: var(--subtitleFontColor);
+}
+
+/**
+ * Profile - Avatar
+ */
+
+.frame__panel .avatar {
+  width: var(--avatarSize);
+  height: var(--avatarSize);
+  margin-bottom: 1.5em;
+  border-radius: 100%;
+  background: var(--avatarBackground);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  cursor: pointer;
+}
+
+.frame__panel .avatar::before,
+.frame__panel .avatar::after {
+  display: block;
+  content: '';
+  box-sizing: border-box;
+  border: var(--buttonBorder);
+  border-radius: 100%;
+  position: absolute;
+  transition: transform 1s;
+}
+
+.frame__panel .avatar::before {
+  --margin: 5px;
+  --size: calc(100% + 2 * var(--margin));
+  --offset: calc(-1 * var(--margin));
+  width: var(--size);
+  height: var(--size);
+  left: var(--offset);
+  top: var(--offset);
+  border-right-color: transparent;
+}
+
+.frame__panel .avatar::after {
+  --margin: 2px;
+  --size: calc(100% + 2 * var(--margin));
+  --offset: calc(-1 * var(--margin));
+  width: var(--size);
+  height: var(--size);
+  left: var(--offset);
+  top: var(--offset);
+  border-left-color: transparent;
+}
+
+.frame__panel .avatar:hover::before {
+  transform: rotate(-360deg);
+}
+
+.frame__panel .avatar:hover::after {
+  transform: rotate(360deg);
+}
+
+/**
+ * Profile - Actions
+ */
+.frame__panel .actions {
+  margin-top: 2rem;
+}
+
+.frame__panel .actions button {
+  width: var(--buttonWidth);
+  padding: var(--buttonPadding);
+  background: var(--buttonBackground);
+  border: var(--buttonBorder);
+  border-radius: var(--buttonBorderRadius);
+  font-size: 0.8rem;
+  color: inherit;
+  transition: background-color 0.5s ease-out;
+  cursor: pointer;
+}
+
+.frame__panel .actions button + button {
+  margin-top: 0.8em;
+}
+
+.frame__panel .actions button:hover {
+  background: var(--fontColor);
+  color: white;
+}
+
+/**
+ * Stats Content
+ */
+.stats__item {
+  height: 100%;
+  background: var(--statsBackground);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.stats__item + .stats__item {
+  margin-top: 1px;
+}
+
+.stats__item > h3 {
+  font-size: var(--titleFontSize);
+}
+
+.stats__item:hover {
+  background: var(--statsHoverBackground);
+}

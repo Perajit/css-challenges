@@ -1,0 +1,56 @@
+/**
+ * Variables
+ */
+ :root {
+  --fontFamily: sans-serif;
+  --fontColor: grey;
+  --frameWidth: 400px;
+  --frameHeight: 400px;
+  --frameBackground: darkslategray;
+  --frameShadow: 1px 2px 10px rgba(0, 0, 0, 0.25);
+  --panelShadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+  --mainPanelWidth: 300px;
+  --mainPanelHeight: 300px;
+  --mainPanelBackground: white;
+}
+
+h1, h2, h3, h4, h5,
+p,
+ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: normal;
+}
+
+ul, li {
+  list-style: none;
+}
+
+.frame {
+  overflow: hidden;
+  width: var(--frameWidth);
+  height: var(--frameHeight);
+  margin: auto;
+  background: var(--frameBackground);
+  box-shadow: var(--frameShadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--fontFamily);
+  color: var(--fontColor);
+  position: relative;
+}
+
+.panel {
+  box-shadow: var(--panelShadow);
+}
+
+.main-panel {
+  width: var(--mainPanelWidth);
+  height: var(--mainPanelHeight);
+  background: var(--mainPanelBackground);
+}

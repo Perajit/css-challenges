@@ -1,0 +1,121 @@
+/**
+ * Variables
+ */
+ :root {
+  --frameWidth: 400px;
+  --frameHeight: 400px;
+  --frameBackground: violet;
+  --frameShadow: 1px 2px 10px rgba(0, 0, 0, 0.25);
+  --circleBackground: white;
+  --circleShadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+  --circleUnitSize: 40px;
+ }
+
+.frame {
+  width: var(--frameWidth);
+  height: var(--frameHeight);
+  margin: auto;
+  background: var(--frameBackground);
+  box-shadow: var(--frameShadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.frame__content {
+  margin: auto;
+  position: relative;
+}
+
+.frame__content .circle {
+  border-radius: 100%;
+  background: var(--circleBackground);
+  box-shadow: var(--circleShadow);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: all 1s;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.frame__content .circle:nth-of-type(1) {
+  --size: calc(3 * var(--circleUnitSize));
+  width: var(--size);
+  height: var(--size);
+  animation-name: circle-1;
+}
+
+.frame__content .circle:nth-of-type(2) {
+  --size: calc(2 * var(--circleUnitSize));
+  width: var(--size);
+  height: var(--size);
+  animation-name: circle-2;
+}
+
+.frame__content .circle:nth-of-type(3) {
+  --size: calc(1 * var(--circleUnitSize));
+  width: var(--size);
+  height: var(--size);
+  animation-name: circle-3;
+}
+
+@keyframes circle-1 {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  15% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  85% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+}
+
+@keyframes circle-2 {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  15% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  30% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  85% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+}
+
+@keyframes circle-3 {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  30% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  45% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  55% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+}
